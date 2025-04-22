@@ -64,8 +64,9 @@ cd ..                                                           # leave rootfs a
 cd "$OUTDIR"
 if [ ! -d "${OUTDIR}/busybox" ]
 then
-git clone git://busybox.net/busybox.git
+git clone https://busybox.net/busybox.git
     cd busybox
+    git fetch --tags
     git checkout ${BUSYBOX_VERSION}
     # TODO:  Configure busybox
     make distclean      # clean the BusyBox source tree
@@ -125,4 +126,4 @@ cd ..
 cd ${OUTDIR}/rootfs
 find . | cpio -H newc -ov --owner root:root > ${OUTDIR}/initramfs.cpio
 cd ..
-gzip -f initramfs.cpio
+gzip -f "${OUTDIR}/initramfs.cpio"
