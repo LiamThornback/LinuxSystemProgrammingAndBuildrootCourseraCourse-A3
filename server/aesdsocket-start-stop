@@ -1,0 +1,12 @@
+#!/bin/sh
+
+### BEGIN INIT INFO
+# Provides: 
+# Required-Start:
+# Required-Stop:
+# Default-Start:
+# Default-Stop:
+### End INIT INFO
+
+DAEMON=/usr/bin/aesdsocket
+PIDFILE=/var/run/aesdsocket.pid
