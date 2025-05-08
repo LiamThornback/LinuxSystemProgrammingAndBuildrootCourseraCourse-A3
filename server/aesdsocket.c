@@ -198,7 +198,7 @@ static int send_file_back(FILE *fp, int conn_fd) {
                 // If `bytes_read` is 0, it means EOF is reached or an error occurred.
                 
                 // Send the chunk of data read from the file using the `sendall()` helpfer function.
-                if (sendall(client_fd, send_buffer, bytes_read)< 0) {
+                if (sendall(conn_fd, send_buffer, bytes_read)< 0) {
                         perror("`sendall()` in `send_file_back()` failed");
                         return -1; // Indicate failure.
                 }
